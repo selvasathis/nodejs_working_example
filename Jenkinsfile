@@ -23,30 +23,5 @@ pipeline {
             }
         }
     }
-    post {
-        success {
-            script {
-                // Send a success notification to Slack
-                    slackSend(
-                    color: 'good',
-                    message: "Build successful!",
-                    channel: "selvasathis",
-                    teamDomain: "nodejs",
-                    tokenCredentialId: 'slack'
-                    )
-            }
-        }
-        failure {
-            script {
-                // Send a failure notification to Slack
-                slackSend(
-                    color: 'danger',
-                    message: "Build failed!",
-                    channel: "selvasathis",
-                    teamDomain: "nodejs",
-                    tokenCredentialId: 'slack'
-                )
-            }
-        }
-    }
 }
+    
