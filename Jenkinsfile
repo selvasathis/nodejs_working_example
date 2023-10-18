@@ -22,6 +22,14 @@ pipeline {
                 }
             }
         }
+        stage ('push images to nexus') {
+            steps {
+                script {
+                    sh "docker login -u admin -p Admin 52.195.220.107:9090"
+                    sh "docker tag nodejsapp:latest 52.195.220.107:9090/nodejsapp:1.0.0"
+                    sh 'docker push 52.195.220.107:9090/nodejsapp:1.0.0'
+                }
+            }
+        }
     }
 }
-    
